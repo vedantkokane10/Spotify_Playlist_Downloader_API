@@ -17,7 +17,7 @@ CORS(app)  # CORS - cross-origin requests/Resource Sharing (allows your API to b
 # Spotify API Credentials
 SPOTIFY_CLIENT_ID = '42227dfaa2ae4abd836d04442c718c9d'
 SPOTIFY_CLIENT_SECRET = '767f523ab80f4b1788c56c9b0226cc06'
-SPOTIPY_REDIRECT_URI = 'http://localhost:5000/callback'
+SPOTIPY_REDIRECT_URI = 'https://spotify-playlist-downloader-api-3.onrender.com/callback'
 
 # URLS fo the Spotify API
 AUTH_URL = 'https://accounts.spotify.com/authorize'
