@@ -15,9 +15,9 @@ app.secret_key = '53d355f8-571a-4590-a310-1f9579440851'
 CORS(app)  # CORS - cross-origin requests/Resource Sharing (allows your API to be accessed from different domains).
 
 # Spotify API Credentials
-SPOTIFY_CLIENT_ID = os.getenv('SPOTIFY_CLIENT_ID')
-SPOTIFY_CLIENT_SECRET = os.getenv('SPOTIFY_CLIENT_SECRET')
-SPOTIPY_REDIRECT_URI = os.getenv('SPOTIPY_REDIRECT_URI')
+SPOTIFY_CLIENT_ID = '42227dfaa2ae4abd836d04442c718c9d'
+SPOTIFY_CLIENT_SECRET = '767f523ab80f4b1788c56c9b0226cc06'
+SPOTIPY_REDIRECT_URI = 'http://localhost:5000/callback'
 
 # URLS fo the Spotify API
 AUTH_URL = 'https://accounts.spotify.com/authorize'
