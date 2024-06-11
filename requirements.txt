@@ -44,7 +44,7 @@ Brotli==1.1.0
 brotlipy==0.7.0
 cachelib==0.13.0
 cachetools==5.3.3
-certifi @ file:///private/var/folders/k1/30mswbxs7r1g6zwn8y4fyt500000gp/T/abs_3bzbkiv4h_/croot/certifi_1707229182618/work/certifi
+certifi==2024.6.2
 cffi @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_ab19r4bji3/croot/cffi_1670423206034/work
 chardet @ file:///Users/ktietz/ci_310/chardet_1643965356347/work
 charset-normalizer @ file:///tmp/build/80754af9/charset-normalizer_1630003229654/work
@@ -103,6 +103,7 @@ google-auth==2.29.0
 google-auth-httplib2==0.2.0
 googleapis-common-protos==1.63.0
 greenlet @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_5b9h4voofy/croot/greenlet_1670513245570/work
+gunicorn==22.0.0
 h11 @ file:///private/var/folders/k1/30mswbxs7r1g6zwn8y4fyt500000gp/T/abs_110bmw2coo/croot/h11_1706652289620/work
 h5py @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_daxwd848b4/croots/recipe/h5py_1659091376118/work
 HeapDict @ file:///Users/ktietz/demo/mc3/conda-bld/heapdict_1630598515714/work
