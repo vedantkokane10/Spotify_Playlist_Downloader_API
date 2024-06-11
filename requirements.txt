@@ -1,6 +1,6 @@
 Flask==2.0.2
 python-dotenv==0.19.2
-requests==2.26.0
+requests>=2.26.0,<3.0.0
 youtube-dl==2021.12.17
 yt-dlp==2024.5.27
 Flask-Cors==3.0.10
