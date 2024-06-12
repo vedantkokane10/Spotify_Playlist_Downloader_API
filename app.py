@@ -24,6 +24,7 @@ AUTH_URL = 'https://accounts.spotify.com/authorize'
 TOKEN_URL = 'https://accounts.spotify.com/api/token'
 API_BASE_URL = 'https://api.spotify.com/v1/'
 
+
 @app.route('/')
 def index():
     return redirect('login')
@@ -136,6 +137,11 @@ def get_playlist_tracks(playlist_id):
 
     return jsonify(download_links)
 
+
+
+
+
+# a window where the user can download or stream audio file
 # a window where the user can download or stream audio file
 @app.route('/stream_audio/<video_id>')
 def stream_audio(video_id):
@@ -143,20 +149,17 @@ def stream_audio(video_id):
     ydl_opts = {
         'format': 'bestaudio/best',
         'quiet': True,
+        'extract_audio': True,
+        'audioformat': 'mp3',
     }
-    def generate():
-        try:
-            with YoutubeDL(ydl_opts) as ydl:
-                result = ydl.extract_info(url, download=True)
-                audio_url = result['url']
-                with requests.get(audio_url, stream=True) as r:
-                    for chunk in r.iter_content(chunk_size=1024):
-                        if chunk:
-                            yield chunk
-        except Exception as e:
-            yield str(e)
+    try:
+        with YoutubeDL(ydl_opts) as ydl:
+            info_dict = ydl.extract_info(url, download=False)
+            mp3_url = info_dict['url']
+            return redirect(mp3_url)  # Redirect to the direct MP3 download URL
+    except Exception as e:
+        return jsonify({'error': str(e)})
 
-    return Response(generate(), content_type='audio/mpeg')
 
 def sanitize_filename(name):
     return re.sub(r'[\\/*?:"<>|]', "", name)
@@ -175,9 +178,9 @@ def get_video_url(song_name, artist_name):
     try:
         with YoutubeDL(ydl_opts) as ydl:
             info_dict = ydl.extract_info(f"ytsearch:{query}", download=False)
+            print(info_dict['entries'][0]['id'])
             if 'entries' not in info_dict or not info_dict['entries']:
                 return {'error': 'No results found'}
-
             video_id = info_dict['entries'][0]['id']
             return {'status': 'success', 'video_id': video_id}
     except Exception as e:
@@ -185,3 +188,5 @@ def get_video_url(song_name, artist_name):
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+
